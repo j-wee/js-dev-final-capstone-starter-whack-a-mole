@@ -131,12 +131,11 @@ function showAndHide(hole, delay){
   // call the toggleVisibility function so that it adds the 'show' class.
   toggleVisibility(hole);
   
-  const timeoutID = setTimeout(() => {
+  return setTimeout(() => {
     // call the toggleVisibility function so that it removes the 'show' class when the timer times out.
     toggleVisibility(hole);
     gameOver();
   }, delay);
-  return timeoutID;
 }
 
 /**
@@ -147,7 +146,7 @@ function showAndHide(hole, delay){
 */
 function toggleVisibility(hole){
   // adds or removes the 'show' class.
-  hole.classList.toggle(hole);
+  hole.classList.toggle('show');
 
   return hole;
 }
@@ -214,7 +213,7 @@ function startTimer() {
 *
 */
 function whack(event) {
-  points = updateScore()
+  points = updateScore();
   return points;
 }
 
@@ -260,8 +259,11 @@ function stopGame(){
 *
 */
 function startGame(){
+  startTimer();
   setDuration(10);
   showUp();
+  setEventListeners();
+  clearScore();
   return "game started";
 }
 
