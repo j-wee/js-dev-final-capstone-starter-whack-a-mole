@@ -98,8 +98,11 @@ function chooseHole(holes) {
 *
 */
 function gameOver() {
-  // TODO: Write your code here
-  
+  if (time > 0) {
+    return showUp();
+  } else {
+    return stopGame();
+  }
 }
 
 /**
@@ -112,7 +115,7 @@ function gameOver() {
 *
 */
 function showUp() {
-  let delay = setDelay("easy");
+  let delay = setDelay(difficulty);
   const hole = chooseHole(holes);
   return showAndHide(hole, delay);
 }
@@ -260,8 +263,8 @@ function stopGame(){
 *
 */
 function startGame(){
-  //setDuration(10);
-  //showUp();
+  setDuration(10);
+  showUp();
   return "game started";
 }
 
