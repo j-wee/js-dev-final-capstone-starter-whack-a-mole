@@ -4,11 +4,36 @@ const startButton = document.querySelector('#start');
 const score = document.querySelector('#score');
 const timerDisplay = document.querySelector('#timer');
 
+// https://stackoverflow.com/questions/37674223/domexception-failed-to-load-because-no-supported-source-was-found
+import moleSong from '../assets/molesong.mp3';
+const song = new Audio(moleSong);
+
+
 let time = 0;
 let timer;
 let lastHole = 0;
 let points = 0;
 let difficulty = "hard";
+
+
+/**
+ * Play background music
+ *
+ * Source: https://replit.com/@thinkful/audiofx-and-music#script.js
+ */
+function playMusic(){
+  song.loop = true;
+  song.play();
+}
+
+/**
+ * Pause background music
+ *
+ * Source: https://replit.com/@thinkful/audiofx-and-music#script.js
+ */
+function pauseMusic(){
+  song.pause();
+}
 
 /**
  * Generates a random integer within a range.
@@ -247,7 +272,7 @@ function setDuration(duration) {
 *
 */
 function stopGame(){
-  // stopAudio(song);  //optional
+  pauseMusic(song);
   clearInterval(timer);
   return "game stopped";
 }
@@ -259,6 +284,7 @@ function stopGame(){
 *
 */
 function startGame(){
+  playMusic();
   startTimer();
   setDuration(10);
   showUp();
