@@ -5,9 +5,9 @@ const score = document.querySelector('#score');
 const timerDisplay = document.querySelector('#timer');
 
 // https://stackoverflow.com/questions/37674223/domexception-failed-to-load-because-no-supported-source-was-found
-import moleSong from '../assets/molesong.mp3';
+// https://stackoverflow.com/questions/46677752/the-difference-between-requirex-and-import-x
+const moleSong = require('../assets/molesong.mp3');
 const song = new Audio(moleSong);
-
 
 let time = 0;
 let timer;
