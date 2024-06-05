@@ -3,11 +3,7 @@ const moles = document.querySelectorAll('.mole');
 const startButton = document.querySelector('#start');
 const score = document.querySelector('#score');
 const timerDisplay = document.querySelector('#timer');
-
-// https://stackoverflow.com/questions/37674223/domexception-failed-to-load-because-no-supported-source-was-found
-// https://stackoverflow.com/questions/46677752/the-difference-between-requirex-and-import-x
-const moleSong = require('../assets/molesong.mp3');
-const song = new Audio(moleSong);
+const song = new Audio('./assets/molesong.mp3');
 
 let time = 0;
 let timer;
